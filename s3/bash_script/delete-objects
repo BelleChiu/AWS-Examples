@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+echo "delete-object"
+
+
+#https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
+
+# Check for bucket name
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name eg. ./bucket my-bucket-name"
+    exit 1
+fi
+
+BUCKET_NAME=$1
+
+
+
+# List objects and format the output for deletion
+
+#delete_json=$(aws s3api list-objects --bucket $BUCKET_NAME --query 'Contents[].{Key: Key}' | jq '{Objects: .}')
+
+# Delete the objects
+#if [ -n "$delete_json" ]; then
+#    aws s3api delete-objects --bucket $BUCKET_NAME --delete "$delete_json"
+#fi
+
+
+delete_json=$(aws s3api list-objects-v2 \
+--bucket $BUCKET_NAME  \
+--query Contents[].Key \
+| jq -n '{Objects: [inputs | .[] | {Key: .}]}') 
+
+
+if [ -n "$delete_json" ]; then
+    aws s3api delete-objects --bucket $BUCKET_NAME --delete "$delete_json"
+fi

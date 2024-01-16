@@ -1,11 +1,8 @@
 tasks:
-  - name: cdk
-    before: |
-      npm i -g aws-cdk
   # random utilities
   - name: utils
     before: |
-      sudp apt-get install tree
+      sudo apt-get install tree
   # https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu?view=powershell-7.4
   # https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up-linux-mac.html
   # https://docs.aws.amazon.com/powershell/latest/reference/
@@ -14,4 +11,8 @@ tasks:
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
-      ./bin/aws_cli_install.sh
+      cd /workspace
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+      cd  $THEIA_WORKSPACE_ROOT
