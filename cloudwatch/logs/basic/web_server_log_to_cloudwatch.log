@@ -1,0 +1,7 @@
+2024-10-02 12:01:15 192.168.1.1 - www.example.com WEB01 10.0.0.1 GET /products.html - 404 0 3 18
+2024-10-02 12:01:16 192.168.1.2 - www.example.com WEB01 10.0.0.1 GET /products.html - 500 0 3 24
+2024-10-02 12:01:17 192.168.1.3 - www.example.com WEB01 10.0.0.1 POST /about.html add_item=12345 404 0 0 47
+2024-10-02 12:01:18 192.168.1.4 - www.example.com WEB01 10.0.0.1 GET /contact.html - 500 0 3 16
+2024-10-02 12:01:19 192.168.1.5 guest www.example.com WEB01 10.0.0.1 POST /login.php user=admin 404 0 3 50
+2024-10-02 12:01:20 192.168.1.6 john www.example.com WEB01 10.0.0.1 POST /index.html add_item=12345 500 0 3 34
+2024-10-02 12:01:21 192.168.1.7 guest www.example.com WEB01 10.0.0.1 POST /about.html add_item=12345 500 0 2 37
