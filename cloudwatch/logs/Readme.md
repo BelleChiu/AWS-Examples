@@ -24,3 +24,7 @@ aws logs create-log-stream --log-group-name "/example/basic/app2" --log-stream-n
 ```
 aws logs put-log-events --log-group-name my-logs --log-stream-name 20150601 --log-events file://events
 ```
+
+## Ruby SDK Logs
+bundle install
+bundle exec rake log
